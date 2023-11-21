@@ -17,9 +17,9 @@
   <meta name="keywords" content="">
   
     <meta name="description" content="计算机图形学绘制贝塞尔曲线真的是难绷，那个用鼠标拖动始终完成不了，先立个flag在这里，我两天之内一定要解决这个问题，先把现在的代码存在这里：“头文件”“#pragma once#define MAX_OBJECTS 10000#define DEFAULT_POINT_SIZE 10#define DEFAULT_LINE_WIDTH 5#define DEFAULT_BEZIER_CONTRO">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Opengl 的贝塞尔曲线绘制">
-<meta property="og:url" content="http://example.com/Opengl-%E7%9A%84%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E7%BB%98%E5%88%B6/index.html">
+<meta property="og:url" content="http://example.com/2023/11/20/index/index.html">
 <meta property="og:site_name" content="眼里的星星的个人博客">
 <meta property="og:description" content="计算机图形学绘制贝塞尔曲线真的是难绷，那个用鼠标拖动始终完成不了，先立个flag在这里，我两天之内一定要解决这个问题，先把现在的代码存在这里：“头文件”“#pragma once#define MAX_OBJECTS 10000#define DEFAULT_POINT_SIZE 10#define DEFAULT_LINE_WIDTH 5#define DEFAULT_BEZIER_CONTRO">
 <meta property="og:locale" content="zh_CN">
@@ -35,6 +35,12 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -113,7 +119,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -224,6 +230,54 @@
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-20 21:41" pubdate>
+          2023年11月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          22k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          182 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span>次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
 
       
@@ -237,17 +291,25 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<article class="page-content">
-  <p>计算机图形学绘制贝塞尔曲线真的是难绷，那个用鼠标拖动始终完成不了，先立个flag在这里，我两天之内一定要解决这个问题，先把现在的代码存在这里：<br>“头文件”<br>“#pragma once<br>#define MAX_OBJECTS 10000<br>#define DEFAULT_POINT_SIZE 10<br>#define DEFAULT_LINE_WIDTH 5<br>#define DEFAULT_BEZIER_CONTROL_POINTS_NUM 4<br>#define MAX_BEZIER_CONTROL_POINTS_NUM 13<br>#define DEFAULT_PICK_BUFFER_SIZE 32<br>#define DEFAULT_PICK_WINDOW_SIZE 10<br>#define MAX_BEZIER_LINE_NUM 5<br>#define PI 3.14159265358979323846 &#x2F;&#x2F; pi<br>#include&lt;stdio.h&gt;<br>#include&lt;math.h&gt;<br>#include&lt;GL&#x2F;glut.h&gt;<br>#include&lt;GL&#x2F;glu.h&gt;<br>#include&lt;GL&#x2F;gl.h&gt;<br>struct GLTransform;<br>struct GLWorld;<br>enum GLState {<br>    MoveObject,<br>    MakePoint<br>};</p>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Opengl 的贝塞尔曲线绘制</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>计算机图形学绘制贝塞尔曲线真的是难绷，那个用鼠标拖动始终完成不了，先立个flag在这里，我两天之内一定要解决这个问题，先把现在的代码存在这里：<br>“头文件”<br>“#pragma once<br>#define MAX_OBJECTS 10000<br>#define DEFAULT_POINT_SIZE 10<br>#define DEFAULT_LINE_WIDTH 5<br>#define DEFAULT_BEZIER_CONTROL_POINTS_NUM 4<br>#define MAX_BEZIER_CONTROL_POINTS_NUM 13<br>#define DEFAULT_PICK_BUFFER_SIZE 32<br>#define DEFAULT_PICK_WINDOW_SIZE 10<br>#define MAX_BEZIER_LINE_NUM 5<br>#define PI 3.14159265358979323846 &#x2F;&#x2F; pi<br>#include&lt;stdio.h&gt;<br>#include&lt;math.h&gt;<br>#include&lt;GL&#x2F;glut.h&gt;<br>#include&lt;GL&#x2F;glu.h&gt;<br>#include&lt;GL&#x2F;gl.h&gt;<br>struct GLTransform;<br>struct GLWorld;<br>enum GLState {<br>    MoveObject,<br>    MakePoint<br>};</p>
 <p>struct GLColor<br>{<br>    GLfloat r &#x3D; 0, g &#x3D; 0, b &#x3D; 0;<br>};</p>
 <p>struct GLTransform<br>{<br>    &#x2F;&#x2F; 世界坐标，轴旋转，轴缩放<br>    GLdouble x &#x3D; 0, y &#x3D; 0, z &#x3D; 0;<br>    GLdouble rx &#x3D; 0, ry &#x3D; 0, rz &#x3D; 0;<br>    GLdouble sx &#x3D; 1, sy &#x3D; 1, sz &#x3D; 1;<br>};<br>struct GLPoint {<br>    GLint id &#x3D; 0;<br>    GLColor color;<br>    GLTransform transform;<br>    bool movable &#x3D;true;<br>    bool visible &#x3D; true;</p>
 <pre><code class="hljs">GLWorld* parentWorld;
@@ -671,20 +733,169 @@ void bezier(GLPoint* ctrlPts[], GLint nBezCurvePts) &#123;
           return 0;
       &#125;
 </code></pre>
-<p>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;*<br>&#x2F;&#x2F;* ###############OpenGL绘制贝塞尔曲线(Bézier_curve)###############<br>&#x2F;&#x2F;*<br>&#x2F;&#x2F;* 说明：<br>&#x2F;&#x2F;* 主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41856733/article/details/85309521">https://blog.csdn.net/qq_41856733/article/details/85309521</a><br>&#x2F;&#x2F;* GL相关函数可参考<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/win32/opengl/gllinestipple">https://docs.microsoft.com/zh-cn/windows/win32/opengl/gllinestipple</a><br>&#x2F;&#x2F;* vs2019配置OpenGL可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41894030/article/details/100381865">https://blog.csdn.net/weixin_41894030/article/details/100381865</a><br>&#x2F;&#x2F;* 如有侵权行为或其他不当之处欢迎联系作者：<a href="mailto:&#x32;&#56;&#x30;&#51;&#x31;&#54;&#56;&#54;&#x34;&#57;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x32;&#56;&#x30;&#51;&#x31;&#54;&#56;&#54;&#x34;&#57;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a><br>&#x2F;&#x2F;<em>&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;#include &lt;windows.h&gt;<br>&#x2F;&#x2F;#include &lt;GL&#x2F;glut.h&gt;<br>&#x2F;&#x2F;#include &lt;math.h&gt;<br>&#x2F;&#x2F;#include &lt;stdio.h&gt;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;#define    MAXPOINTS    20<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;int</em> C;&#x2F;&#x2F;二项式系数数组指针<br>&#x2F;&#x2F;int control_points_n &#x3D; 0;&#x2F;&#x2F;控制点数量<br>&#x2F;&#x2F;int specific_p;&#x2F;&#x2F;特定点标志<br>&#x2F;&#x2F;int click_state &#x3D; 0;&#x2F;&#x2F;0为新增控制点，1为移动控制点，2为已到底控制点最大值<br>&#x2F;&#x2F;int screen_width, screen_height;&#x2F;&#x2F;屏幕宽度，长度<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;struct point<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int x;<br>&#x2F;&#x2F;    int y;<br>&#x2F;&#x2F;};<br>&#x2F;&#x2F;point* P;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;函数声明<br>&#x2F;&#x2F;void reshape(int w, int h);&#x2F;&#x2F;自适应屏幕窗口大小的改变<br>&#x2F;&#x2F;void keyboard(unsigned char button, int x, int y);&#x2F;&#x2F;控制按键函数<br>&#x2F;&#x2F;void mouse_click(int button, int state, int x, int y);&#x2F;&#x2F;处理鼠标click事件函数<br>&#x2F;&#x2F;void mouse_motion(int x, int y);&#x2F;&#x2F;鼠标在窗口中按下并移动时调用此函数<br>&#x2F;&#x2F;void display(void);&#x2F;&#x2F;显示函数,需要显示时调用此函数<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;定位坐标函数<br>&#x2F;&#x2F;void gotoxy(int x, int y) {<br>&#x2F;&#x2F;    COORD coord;<br>&#x2F;&#x2F;    coord.X &#x3D; x;<br>&#x2F;&#x2F;    coord.Y &#x3D; y;<br>&#x2F;&#x2F;    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;int main(int argc, char** argv)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    P &#x3D; new point[MAXPOINTS];&#x2F;&#x2F;控制点数组指针<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    printf(“按下&quot;ESC&quot;键退出。按下&quot;R&quot;键重新绘制\r\n”);<br>&#x2F;&#x2F;    printf(“最多添加20个点”);<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glutInit(&amp;argc, argv);&#x2F;&#x2F;gult初始化<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;<em>在创建窗口的时候，指定其显示模式的类型。GLUT_DOUBLE代表双缓冲<br>&#x2F;&#x2F;    详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/yangyong0717/article/details/78003913">https://blog.csdn.net/yangyong0717/article/details/78003913</a></em>&#x2F;<br>&#x2F;&#x2F;    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);<br>&#x2F;&#x2F;    glutInitWindowPosition(100, 100);&#x2F;&#x2F;初始化窗口距离屏幕左边和上面的像素数<br>&#x2F;&#x2F;    glutInitWindowSize(500, 500);&#x2F;&#x2F;初始化窗口宽度和高度<br>&#x2F;&#x2F;    glutCreateWindow(“Bézier curve”);&#x2F;&#x2F;创建窗口，”Bézier curve”为窗口名字<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;清除颜色缓冲区,防止缓冲区中原有的颜色信息影响本次绘图<br>&#x2F;&#x2F;    &#x2F;&#x2F;详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/jennifer111111/article/details/51649153">https://blog.csdn.net/jennifer111111/article/details/51649153</a><br>&#x2F;&#x2F;    glClearColor(1.0, 1.0, 1.0, 1.0);<br>&#x2F;&#x2F;    glEnable(GL_LINE_STIPPLE);&#x2F;&#x2F;启用直线点画功能<br>&#x2F;&#x2F;    glutReshapeFunc(reshape);&#x2F;&#x2F;若屏幕窗口大小改变则调用reshape函数<br>&#x2F;&#x2F;    glutKeyboardFunc(keyboard);&#x2F;&#x2F;处理普通按键消息。详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/xie_zi/article/details/1911891">https://blog.csdn.net/xie_zi/article/details/1911891</a><br>&#x2F;&#x2F;    glutMouseFunc(mouse_click);&#x2F;&#x2F;处理鼠标click事件<br>&#x2F;&#x2F;    glutMotionFunc(mouse_motion);&#x2F;&#x2F;当鼠标在窗口中按下并移动时调用glutMotionFunc注册的回调函数<br>&#x2F;&#x2F;    glutDisplayFunc(display);&#x2F;&#x2F;当窗口内容被绘制时调用display函数<br>&#x2F;&#x2F;    glutMainLoop();&#x2F;&#x2F;进入gult死循环<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    delete[] P;<br>&#x2F;&#x2F;    return 1;<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;画正方形，用来标记点<br>&#x2F;&#x2F;void Draw_Square(int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    glColor3f(0, 1, 0);&#x2F;&#x2F;设置颜色，三个参数分别代表red, green, blue<br>&#x2F;&#x2F;    glBegin(GL_POLYGON);&#x2F;&#x2F;绘制了一个凸多边形。顶点1到n定义了这个多边形。<br>&#x2F;&#x2F;    glVertex2f(x + 2, y + 2);<br>&#x2F;&#x2F;    glVertex2f(x - 2, y + 2);<br>&#x2F;&#x2F;    glVertex2f(x - 2, y - 2);<br>&#x2F;&#x2F;    glVertex2f(x + 2, y - 2);<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;<em>计算二项式系数<br>&#x2F;&#x2F;</em> n为次数，C为存放二项式系数的数组<br>&#x2F;&#x2F;* 利用了C(n-k)(n)&#x3D;C(k)(n)<br>&#x2F;&#x2F;* 即C[k] &#x3D; C(k)(n),k在右上角，n在左下角（不知道怎么打那个符号。。）*&#x2F;<br>&#x2F;&#x2F;void Culculate_Binomial_Coefficient(int n, int* C)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int k, j;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    for (k &#x3D; 0;k &lt;&#x3D; n;k++)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        C[k] &#x3D; 1;<br>&#x2F;&#x2F;        for (j &#x3D; n;j &gt;&#x3D; k + 1;j–)&#x2F;&#x2F;1<em>n</em>(n-1)<em>(n-2)</em>…<em>(k+2)</em>(k+1)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            C[k] <em>&#x3D; j;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        for (j &#x3D; n - k;j &gt;&#x3D; 2;j–)&#x2F;&#x2F;上式 &#x2F; ( (n-k)</em>(n-k-1)<em>…<em>3</em>2</em>1 )<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            C[k] &#x2F;&#x3D; j;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;画贝塞尔曲线<br>&#x2F;&#x2F;&#x2F;&#x2F;n为维度（即控制点数减1），p为控制点数组，m为密度<br>&#x2F;&#x2F;void Draw_Bézier_curve(int n, point* p, int m)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i, j;<br>&#x2F;&#x2F;    float t;<br>&#x2F;&#x2F;    int C[MAXPOINTS - 1];&#x2F;&#x2F;二项式系数数组。这样定义有些浪费空间，但不知道更好的办法<br>&#x2F;&#x2F;    &#x2F;&#x2F;算出来的曲线轨迹点x坐标。用float型相比int型曲线会更平滑<br>&#x2F;&#x2F;    float Bézier_curve_pointx;<br>&#x2F;&#x2F;    float Bézier_curve_pointy;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    Culculate_Binomial_Coefficient(n, C);<br>&#x2F;&#x2F;    glLineStipple(1, 0xffff);&#x2F;&#x2F;设置为实线<br>&#x2F;&#x2F;    glBegin(GL_LINE_STRIP);<br>&#x2F;&#x2F;    &#x2F;&#x2F;这里实际上是画了m条短直线来接近贝塞尔曲线<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt;&#x3D; m;i++)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        t &#x3D; (float)i &#x2F; (float)m;<br>&#x2F;&#x2F;        Bézier_curve_pointx &#x3D; 0;<br>&#x2F;&#x2F;        Bézier_curve_pointy &#x3D; 0;<br>&#x2F;&#x2F;        for (j &#x3D; 0;j &lt; control_points_n;j++)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            Bézier_curve_pointx +&#x3D; C[j] * pow(1 - t, control_points_n - j - 1) * pow(t, j) * p[j].x;<br>&#x2F;&#x2F;            Bézier_curve_pointy +&#x3D; C[j] * pow(1 - t, control_points_n - j - 1) * pow(t, j) * p[j].y;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        glVertex2f(Bézier_curve_pointx, Bézier_curve_pointy);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;自适应屏幕窗口大小的改变<br>&#x2F;&#x2F;&#x2F;&#x2F;关于reshape函数可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41856733/article/details/85309521">https://blog.csdn.net/qq_41856733/article/details/85309521</a><br>&#x2F;&#x2F;void reshape(int w, int h)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    screen_width &#x3D; w;<br>&#x2F;&#x2F;    screen_height &#x3D; h;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glViewport(0, 0, w, h);<br>&#x2F;&#x2F;    glMatrixMode(GL_PROJECTION);<br>&#x2F;&#x2F;    glLoadIdentity();<br>&#x2F;&#x2F;    gluOrtho2D(0.0, w, 0.0, h);<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;控制按键函数<br>&#x2F;&#x2F;void keyboard(unsigned char button, int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    switch (button)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;    case 82:&#x2F;&#x2F;“R”<br>&#x2F;&#x2F;    case 114:&#x2F;&#x2F;“r”<br>&#x2F;&#x2F;        &#x2F;&#x2F;重新绘图<br>&#x2F;&#x2F;        &#x2F;&#x2F;清空之前显示的坐标<br>&#x2F;&#x2F;        gotoxy(0, 3);<br>&#x2F;&#x2F;        for (int i &#x3D; 0;i &lt; control_points_n;i++)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            printf(“                   \r\n”);<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        specific_p &#x3D; control_points_n &#x3D; 0;<br>&#x2F;&#x2F;        click_state &#x3D; 0;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        &#x2F;*glutPostRedisplay函数用来标记当前窗口需要重新绘制。通过glutMainLoop<br>&#x2F;&#x2F;        * 下一次循环时，窗口显示将被回调以重新显示窗口的正常面板*&#x2F;<br>&#x2F;&#x2F;        glutPostRedisplay();<br>&#x2F;&#x2F;        break;<br>&#x2F;&#x2F;    case 27:&#x2F;&#x2F;“ESC”<br>&#x2F;&#x2F;        exit(0);&#x2F;&#x2F;退出glut循环<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;*<br>&#x2F;&#x2F;* 处理鼠标click事件函数<br>&#x2F;&#x2F;* button表明哪个鼠标键被按下或松开,第二个参数表明函数被调用发生时鼠标的<br>&#x2F;&#x2F;* 状态（按下或松开），x,y表示鼠标在当前窗口的坐标（以左上角为原点）<br>&#x2F;&#x2F;*&#x2F;<br>&#x2F;&#x2F;void mouse_click(int button, int state, int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i;<br>&#x2F;&#x2F;    int distance;&#x2F;&#x2F;鼠标点击处于任意一点距离<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;如果鼠标左键按下<br>&#x2F;&#x2F;    if (button &#x3D;&#x3D; GLUT_LEFT_BUTTON)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        &#x2F;&#x2F;不是移动状态时计算距离<br>&#x2F;&#x2F;        if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state !&#x3D; 1)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            for (i &#x3D; 0;i &lt; control_points_n;i++)<br>&#x2F;&#x2F;            {<br>&#x2F;&#x2F;                &#x2F;&#x2F;按控制点依次计算距离<br>&#x2F;&#x2F;                distance &#x3D; (x - P[i].x) * (x - P[i].x) +<br>&#x2F;&#x2F;                    (screen_height - y - P[i].y) * (screen_height - y - P[i].y);<br>&#x2F;&#x2F;                if (distance &lt; 15)&#x2F;&#x2F;如果距离小于特定值<br>&#x2F;&#x2F;                {<br>&#x2F;&#x2F;                    click_state &#x3D; 1;&#x2F;&#x2F;进入状态1，即移动点<br>&#x2F;&#x2F;                    specific_p &#x3D; i;<br>&#x2F;&#x2F;                    break;&#x2F;&#x2F;跳出循环<br>&#x2F;&#x2F;                }<br>&#x2F;&#x2F;            }<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state &#x3D;&#x3D; 0)&#x2F;&#x2F;新增点<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            if (control_points_n &lt; MAXPOINTS)<br>&#x2F;&#x2F;            {<br>&#x2F;&#x2F;                P[control_points_n].x &#x3D; x;<br>&#x2F;&#x2F;                P[control_points_n].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;                specific_p &#x3D; control_points_n;<br>&#x2F;&#x2F;                control_points_n++;<br>&#x2F;&#x2F;                glutPostRedisplay();<br>&#x2F;&#x2F;            }<br>&#x2F;&#x2F;            else click_state &#x3D; 2;&#x2F;&#x2F;进入状态2，无法新增控制点<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        else if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state &#x3D;&#x3D; 1)&#x2F;&#x2F;移动点<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            P[specific_p].x &#x3D; x;<br>&#x2F;&#x2F;            P[specific_p].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;            glutPostRedisplay();<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        else if (state &#x3D;&#x3D; GLUT_UP)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            &#x2F;&#x2F;判断控制点是否已达上限<br>&#x2F;&#x2F;            click_state &#x3D; control_points_n &lt; MAXPOINTS ? 0 : 2;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;鼠标在窗口中按下并移动时调用此函数<br>&#x2F;&#x2F;void mouse_motion(int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    if (click_state &#x3D;&#x3D; 1)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        P[specific_p].x &#x3D; x;<br>&#x2F;&#x2F;        P[specific_p].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;        glutPostRedisplay();<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;显示函数,需要显示时调用此函数<br>&#x2F;&#x2F;void display(void)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glClear(GL_COLOR_BUFFER_BIT);&#x2F;&#x2F;清缓存。GL_COLOR_BUFFER_BIT代表当前可写的颜色缓冲<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt; control_points_n;i++)&#x2F;&#x2F;画控制点<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        Draw_Square(P[i].x, P[i].y);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    &#x2F;&#x2F;显示控制点坐标<br>&#x2F;&#x2F;    gotoxy(0, specific_p + 3);<br>&#x2F;&#x2F;    printf(“P%d:(%d, %d)  “, specific_p, P[specific_p].x, P[specific_p].y);<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;0x0f0f即0000 1111 0000 1111，即黑白等长的虚线<br>&#x2F;&#x2F;    &#x2F;&#x2F;glLineStipple函数详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/oktears/article/details/42262187">https://blog.csdn.net/oktears/article/details/42262187</a><br>&#x2F;&#x2F;    glLineStipple(1, 0x0f0f);<br>&#x2F;&#x2F;    glBegin(GL_LINE_STRIP);&#x2F;&#x2F;启用直线点画功能<br>&#x2F;&#x2F;    glColor3f(1, 0, 0);&#x2F;&#x2F;设置颜色，三个参数分别代表red, green, blue<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt; control_points_n;i++)&#x2F;&#x2F;画虚线<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        glVertex2f(P[i].x, P[i].y);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    if (control_points_n &gt; 1)&#x2F;&#x2F;有大于1个控制点就画出贝塞尔曲线<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        Draw_Bézier_curve(control_points_n - 1, P, 200);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;函数详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012442207/article/details/45223261">https://blog.csdn.net/u012442207/article/details/45223261</a><br>&#x2F;&#x2F;    glutSwapBuffers();&#x2F;&#x2F;交换两个缓冲区指针<br>&#x2F;&#x2F;}<br>“</p>
+<p>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;*<br>&#x2F;&#x2F;* ###############OpenGL绘制贝塞尔曲线(Bézier_curve)###############<br>&#x2F;&#x2F;*<br>&#x2F;&#x2F;* 说明：<br>&#x2F;&#x2F;* 主要参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41856733/article/details/85309521">https://blog.csdn.net/qq_41856733/article/details/85309521</a><br>&#x2F;&#x2F;* GL相关函数可参考<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/win32/opengl/gllinestipple">https://docs.microsoft.com/zh-cn/windows/win32/opengl/gllinestipple</a><br>&#x2F;&#x2F;* vs2019配置OpenGL可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41894030/article/details/100381865">https://blog.csdn.net/weixin_41894030/article/details/100381865</a><br>&#x2F;&#x2F;* 如有侵权行为或其他不当之处欢迎联系作者：<a href="mailto:&#50;&#56;&#x30;&#51;&#49;&#54;&#x38;&#54;&#52;&#x39;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;">&#50;&#56;&#x30;&#51;&#49;&#54;&#x38;&#54;&#52;&#x39;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#109;</a><br>&#x2F;&#x2F;<em>&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;#include &lt;windows.h&gt;<br>&#x2F;&#x2F;#include &lt;GL&#x2F;glut.h&gt;<br>&#x2F;&#x2F;#include &lt;math.h&gt;<br>&#x2F;&#x2F;#include &lt;stdio.h&gt;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;#define    MAXPOINTS    20<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;int</em> C;&#x2F;&#x2F;二项式系数数组指针<br>&#x2F;&#x2F;int control_points_n &#x3D; 0;&#x2F;&#x2F;控制点数量<br>&#x2F;&#x2F;int specific_p;&#x2F;&#x2F;特定点标志<br>&#x2F;&#x2F;int click_state &#x3D; 0;&#x2F;&#x2F;0为新增控制点，1为移动控制点，2为已到底控制点最大值<br>&#x2F;&#x2F;int screen_width, screen_height;&#x2F;&#x2F;屏幕宽度，长度<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;struct point<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int x;<br>&#x2F;&#x2F;    int y;<br>&#x2F;&#x2F;};<br>&#x2F;&#x2F;point* P;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;函数声明<br>&#x2F;&#x2F;void reshape(int w, int h);&#x2F;&#x2F;自适应屏幕窗口大小的改变<br>&#x2F;&#x2F;void keyboard(unsigned char button, int x, int y);&#x2F;&#x2F;控制按键函数<br>&#x2F;&#x2F;void mouse_click(int button, int state, int x, int y);&#x2F;&#x2F;处理鼠标click事件函数<br>&#x2F;&#x2F;void mouse_motion(int x, int y);&#x2F;&#x2F;鼠标在窗口中按下并移动时调用此函数<br>&#x2F;&#x2F;void display(void);&#x2F;&#x2F;显示函数,需要显示时调用此函数<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;定位坐标函数<br>&#x2F;&#x2F;void gotoxy(int x, int y) {<br>&#x2F;&#x2F;    COORD coord;<br>&#x2F;&#x2F;    coord.X &#x3D; x;<br>&#x2F;&#x2F;    coord.Y &#x3D; y;<br>&#x2F;&#x2F;    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;int main(int argc, char** argv)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    P &#x3D; new point[MAXPOINTS];&#x2F;&#x2F;控制点数组指针<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    printf(“按下&quot;ESC&quot;键退出。按下&quot;R&quot;键重新绘制\r\n”);<br>&#x2F;&#x2F;    printf(“最多添加20个点”);<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glutInit(&amp;argc, argv);&#x2F;&#x2F;gult初始化<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;<em>在创建窗口的时候，指定其显示模式的类型。GLUT_DOUBLE代表双缓冲<br>&#x2F;&#x2F;    详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/yangyong0717/article/details/78003913">https://blog.csdn.net/yangyong0717/article/details/78003913</a></em>&#x2F;<br>&#x2F;&#x2F;    glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);<br>&#x2F;&#x2F;    glutInitWindowPosition(100, 100);&#x2F;&#x2F;初始化窗口距离屏幕左边和上面的像素数<br>&#x2F;&#x2F;    glutInitWindowSize(500, 500);&#x2F;&#x2F;初始化窗口宽度和高度<br>&#x2F;&#x2F;    glutCreateWindow(“Bézier curve”);&#x2F;&#x2F;创建窗口，”Bézier curve”为窗口名字<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;清除颜色缓冲区,防止缓冲区中原有的颜色信息影响本次绘图<br>&#x2F;&#x2F;    &#x2F;&#x2F;详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/jennifer111111/article/details/51649153">https://blog.csdn.net/jennifer111111/article/details/51649153</a><br>&#x2F;&#x2F;    glClearColor(1.0, 1.0, 1.0, 1.0);<br>&#x2F;&#x2F;    glEnable(GL_LINE_STIPPLE);&#x2F;&#x2F;启用直线点画功能<br>&#x2F;&#x2F;    glutReshapeFunc(reshape);&#x2F;&#x2F;若屏幕窗口大小改变则调用reshape函数<br>&#x2F;&#x2F;    glutKeyboardFunc(keyboard);&#x2F;&#x2F;处理普通按键消息。详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/xie_zi/article/details/1911891">https://blog.csdn.net/xie_zi/article/details/1911891</a><br>&#x2F;&#x2F;    glutMouseFunc(mouse_click);&#x2F;&#x2F;处理鼠标click事件<br>&#x2F;&#x2F;    glutMotionFunc(mouse_motion);&#x2F;&#x2F;当鼠标在窗口中按下并移动时调用glutMotionFunc注册的回调函数<br>&#x2F;&#x2F;    glutDisplayFunc(display);&#x2F;&#x2F;当窗口内容被绘制时调用display函数<br>&#x2F;&#x2F;    glutMainLoop();&#x2F;&#x2F;进入gult死循环<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    delete[] P;<br>&#x2F;&#x2F;    return 1;<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;画正方形，用来标记点<br>&#x2F;&#x2F;void Draw_Square(int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    glColor3f(0, 1, 0);&#x2F;&#x2F;设置颜色，三个参数分别代表red, green, blue<br>&#x2F;&#x2F;    glBegin(GL_POLYGON);&#x2F;&#x2F;绘制了一个凸多边形。顶点1到n定义了这个多边形。<br>&#x2F;&#x2F;    glVertex2f(x + 2, y + 2);<br>&#x2F;&#x2F;    glVertex2f(x - 2, y + 2);<br>&#x2F;&#x2F;    glVertex2f(x - 2, y - 2);<br>&#x2F;&#x2F;    glVertex2f(x + 2, y - 2);<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;<em>计算二项式系数<br>&#x2F;&#x2F;</em> n为次数，C为存放二项式系数的数组<br>&#x2F;&#x2F;* 利用了C(n-k)(n)&#x3D;C(k)(n)<br>&#x2F;&#x2F;* 即C[k] &#x3D; C(k)(n),k在右上角，n在左下角（不知道怎么打那个符号。。）*&#x2F;<br>&#x2F;&#x2F;void Culculate_Binomial_Coefficient(int n, int* C)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int k, j;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    for (k &#x3D; 0;k &lt;&#x3D; n;k++)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        C[k] &#x3D; 1;<br>&#x2F;&#x2F;        for (j &#x3D; n;j &gt;&#x3D; k + 1;j–)&#x2F;&#x2F;1<em>n</em>(n-1)<em>(n-2)</em>…<em>(k+2)</em>(k+1)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            C[k] <em>&#x3D; j;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        for (j &#x3D; n - k;j &gt;&#x3D; 2;j–)&#x2F;&#x2F;上式 &#x2F; ( (n-k)</em>(n-k-1)<em>…<em>3</em>2</em>1 )<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            C[k] &#x2F;&#x3D; j;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;画贝塞尔曲线<br>&#x2F;&#x2F;&#x2F;&#x2F;n为维度（即控制点数减1），p为控制点数组，m为密度<br>&#x2F;&#x2F;void Draw_Bézier_curve(int n, point* p, int m)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i, j;<br>&#x2F;&#x2F;    float t;<br>&#x2F;&#x2F;    int C[MAXPOINTS - 1];&#x2F;&#x2F;二项式系数数组。这样定义有些浪费空间，但不知道更好的办法<br>&#x2F;&#x2F;    &#x2F;&#x2F;算出来的曲线轨迹点x坐标。用float型相比int型曲线会更平滑<br>&#x2F;&#x2F;    float Bézier_curve_pointx;<br>&#x2F;&#x2F;    float Bézier_curve_pointy;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    Culculate_Binomial_Coefficient(n, C);<br>&#x2F;&#x2F;    glLineStipple(1, 0xffff);&#x2F;&#x2F;设置为实线<br>&#x2F;&#x2F;    glBegin(GL_LINE_STRIP);<br>&#x2F;&#x2F;    &#x2F;&#x2F;这里实际上是画了m条短直线来接近贝塞尔曲线<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt;&#x3D; m;i++)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        t &#x3D; (float)i &#x2F; (float)m;<br>&#x2F;&#x2F;        Bézier_curve_pointx &#x3D; 0;<br>&#x2F;&#x2F;        Bézier_curve_pointy &#x3D; 0;<br>&#x2F;&#x2F;        for (j &#x3D; 0;j &lt; control_points_n;j++)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            Bézier_curve_pointx +&#x3D; C[j] * pow(1 - t, control_points_n - j - 1) * pow(t, j) * p[j].x;<br>&#x2F;&#x2F;            Bézier_curve_pointy +&#x3D; C[j] * pow(1 - t, control_points_n - j - 1) * pow(t, j) * p[j].y;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        glVertex2f(Bézier_curve_pointx, Bézier_curve_pointy);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;自适应屏幕窗口大小的改变<br>&#x2F;&#x2F;&#x2F;&#x2F;关于reshape函数可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41856733/article/details/85309521">https://blog.csdn.net/qq_41856733/article/details/85309521</a><br>&#x2F;&#x2F;void reshape(int w, int h)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    screen_width &#x3D; w;<br>&#x2F;&#x2F;    screen_height &#x3D; h;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glViewport(0, 0, w, h);<br>&#x2F;&#x2F;    glMatrixMode(GL_PROJECTION);<br>&#x2F;&#x2F;    glLoadIdentity();<br>&#x2F;&#x2F;    gluOrtho2D(0.0, w, 0.0, h);<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;控制按键函数<br>&#x2F;&#x2F;void keyboard(unsigned char button, int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    switch (button)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;    case 82:&#x2F;&#x2F;“R”<br>&#x2F;&#x2F;    case 114:&#x2F;&#x2F;“r”<br>&#x2F;&#x2F;        &#x2F;&#x2F;重新绘图<br>&#x2F;&#x2F;        &#x2F;&#x2F;清空之前显示的坐标<br>&#x2F;&#x2F;        gotoxy(0, 3);<br>&#x2F;&#x2F;        for (int i &#x3D; 0;i &lt; control_points_n;i++)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            printf(“                   \r\n”);<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        specific_p &#x3D; control_points_n &#x3D; 0;<br>&#x2F;&#x2F;        click_state &#x3D; 0;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        &#x2F;*glutPostRedisplay函数用来标记当前窗口需要重新绘制。通过glutMainLoop<br>&#x2F;&#x2F;        * 下一次循环时，窗口显示将被回调以重新显示窗口的正常面板*&#x2F;<br>&#x2F;&#x2F;        glutPostRedisplay();<br>&#x2F;&#x2F;        break;<br>&#x2F;&#x2F;    case 27:&#x2F;&#x2F;“ESC”<br>&#x2F;&#x2F;        exit(0);&#x2F;&#x2F;退出glut循环<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;*<br>&#x2F;&#x2F;* 处理鼠标click事件函数<br>&#x2F;&#x2F;* button表明哪个鼠标键被按下或松开,第二个参数表明函数被调用发生时鼠标的<br>&#x2F;&#x2F;* 状态（按下或松开），x,y表示鼠标在当前窗口的坐标（以左上角为原点）<br>&#x2F;&#x2F;*&#x2F;<br>&#x2F;&#x2F;void mouse_click(int button, int state, int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i;<br>&#x2F;&#x2F;    int distance;&#x2F;&#x2F;鼠标点击处于任意一点距离<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;如果鼠标左键按下<br>&#x2F;&#x2F;    if (button &#x3D;&#x3D; GLUT_LEFT_BUTTON)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        &#x2F;&#x2F;不是移动状态时计算距离<br>&#x2F;&#x2F;        if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state !&#x3D; 1)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            for (i &#x3D; 0;i &lt; control_points_n;i++)<br>&#x2F;&#x2F;            {<br>&#x2F;&#x2F;                &#x2F;&#x2F;按控制点依次计算距离<br>&#x2F;&#x2F;                distance &#x3D; (x - P[i].x) * (x - P[i].x) +<br>&#x2F;&#x2F;                    (screen_height - y - P[i].y) * (screen_height - y - P[i].y);<br>&#x2F;&#x2F;                if (distance &lt; 15)&#x2F;&#x2F;如果距离小于特定值<br>&#x2F;&#x2F;                {<br>&#x2F;&#x2F;                    click_state &#x3D; 1;&#x2F;&#x2F;进入状态1，即移动点<br>&#x2F;&#x2F;                    specific_p &#x3D; i;<br>&#x2F;&#x2F;                    break;&#x2F;&#x2F;跳出循环<br>&#x2F;&#x2F;                }<br>&#x2F;&#x2F;            }<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;        if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state &#x3D;&#x3D; 0)&#x2F;&#x2F;新增点<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            if (control_points_n &lt; MAXPOINTS)<br>&#x2F;&#x2F;            {<br>&#x2F;&#x2F;                P[control_points_n].x &#x3D; x;<br>&#x2F;&#x2F;                P[control_points_n].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;                specific_p &#x3D; control_points_n;<br>&#x2F;&#x2F;                control_points_n++;<br>&#x2F;&#x2F;                glutPostRedisplay();<br>&#x2F;&#x2F;            }<br>&#x2F;&#x2F;            else click_state &#x3D; 2;&#x2F;&#x2F;进入状态2，无法新增控制点<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        else if (state &#x3D;&#x3D; GLUT_DOWN &amp;&amp; click_state &#x3D;&#x3D; 1)&#x2F;&#x2F;移动点<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            P[specific_p].x &#x3D; x;<br>&#x2F;&#x2F;            P[specific_p].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;            glutPostRedisplay();<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;        else if (state &#x3D;&#x3D; GLUT_UP)<br>&#x2F;&#x2F;        {<br>&#x2F;&#x2F;            &#x2F;&#x2F;判断控制点是否已达上限<br>&#x2F;&#x2F;            click_state &#x3D; control_points_n &lt; MAXPOINTS ? 0 : 2;<br>&#x2F;&#x2F;        }<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;鼠标在窗口中按下并移动时调用此函数<br>&#x2F;&#x2F;void mouse_motion(int x, int y)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    if (click_state &#x3D;&#x3D; 1)<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        P[specific_p].x &#x3D; x;<br>&#x2F;&#x2F;        P[specific_p].y &#x3D; screen_height - y;<br>&#x2F;&#x2F;        glutPostRedisplay();<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;}<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;&#x2F;&#x2F;显示函数,需要显示时调用此函数<br>&#x2F;&#x2F;void display(void)<br>&#x2F;&#x2F;{<br>&#x2F;&#x2F;    int i;<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    glClear(GL_COLOR_BUFFER_BIT);&#x2F;&#x2F;清缓存。GL_COLOR_BUFFER_BIT代表当前可写的颜色缓冲<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt; control_points_n;i++)&#x2F;&#x2F;画控制点<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        Draw_Square(P[i].x, P[i].y);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    &#x2F;&#x2F;显示控制点坐标<br>&#x2F;&#x2F;    gotoxy(0, specific_p + 3);<br>&#x2F;&#x2F;    printf(“P%d:(%d, %d)  “, specific_p, P[specific_p].x, P[specific_p].y);<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;0x0f0f即0000 1111 0000 1111，即黑白等长的虚线<br>&#x2F;&#x2F;    &#x2F;&#x2F;glLineStipple函数详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/oktears/article/details/42262187">https://blog.csdn.net/oktears/article/details/42262187</a><br>&#x2F;&#x2F;    glLineStipple(1, 0x0f0f);<br>&#x2F;&#x2F;    glBegin(GL_LINE_STRIP);&#x2F;&#x2F;启用直线点画功能<br>&#x2F;&#x2F;    glColor3f(1, 0, 0);&#x2F;&#x2F;设置颜色，三个参数分别代表red, green, blue<br>&#x2F;&#x2F;    for (i &#x3D; 0;i &lt; control_points_n;i++)&#x2F;&#x2F;画虚线<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        glVertex2f(P[i].x, P[i].y);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;    glEnd();<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    if (control_points_n &gt; 1)&#x2F;&#x2F;有大于1个控制点就画出贝塞尔曲线<br>&#x2F;&#x2F;    {<br>&#x2F;&#x2F;        Draw_Bézier_curve(control_points_n - 1, P, 200);<br>&#x2F;&#x2F;    }<br>&#x2F;&#x2F;<br>&#x2F;&#x2F;    &#x2F;&#x2F;函数详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012442207/article/details/45223261">https://blog.csdn.net/u012442207/article/details/45223261</a><br>&#x2F;&#x2F;    glutSwapBuffers();&#x2F;&#x2F;交换两个缓冲区指针<br>&#x2F;&#x2F;}<br>“</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Opengl 的贝塞尔曲线绘制</div>
+      <div>http://example.com/2023/11/20/index/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CrushYouX</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/16/hexo-%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%BF%83%E5%BE%97/" title="hexo">
+                        <span class="hidden-mobile">hexo</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"WAQyDRcuzrK2cZjVhUWaqfpC-gzGzoHsz","appKey":"Lf7r7JrEwvMcsBEeb3KngwSY","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
 
 
   
 
-</article>
+
+
+  
 
 
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -803,6 +1014,99 @@ void bezier(GLPoint* ctrlPts[], GLint nBezCurvePts) &#123;
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script defer src="/js/leancloud.js" ></script>
 
