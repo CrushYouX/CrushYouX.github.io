@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title></title>
+    <link href="/2023/12/04/%E7%94%A8%E5%89%8D%E5%BA%8F%E5%92%8C%E4%B8%AD%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <url>/2023/12/04/%E7%94%A8%E5%89%8D%E5%BA%8F%E5%92%8C%E4%B8%AD%E5%BA%8F%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    
+    <content type="html"><![CDATA[<hr><p>title: 用前序和中序构造二叉树<br>date: 2023-12-04 09:36:33<br>tags:<br>  众所周知，需要至少两种遍历方式才可以确定一颗二叉树的，今天就让我们采用前序和中序遍历的方法构造二叉树。</p><p>  我们以例题的形式进行讲解：给定两个数组：pre&#x3D;{A,B,D,E,C,F,G}，in&#x3D;{D,B,E,A,C,G,F};<br>我们先用先序遍历对preorder进行构造，A为根节点毋庸置疑，根据我们人来观察发现{B,D,E}为左子树，{C，F，G}为右子树，那么计算机应该怎样来识别呢？<br>通过观察分析不难发现：在inorder序列里面，第一个与preorder的第一个字符A相等时，其前面的字符都为左子树，后面的都为右子树，那么把左子树的字符提出来在用同样的方法进行操作，即用迭代的方式就构建出了左子树。右子树的构造方法同理。以下是具体的代码实现：</p><p>&#x2F;&#x2F;创建结构体<br>typedef struct node{<br>    int data;<br>    struct node *leftchild,*rightchild;<br>}Binode,*Bitree;</p><p>int pre[maxn];<br>int in[maxn];</p><p>&#x2F;&#x2F;构造二叉树<br>Bitree create(int prel,int prer,int inl,int inr)&#x2F;&#x2F;prel和prer分别表示前序序列中检测的左右边界，inl和inr分别表示inorder序列中检测的左右边界<br>{<br>    if(prel&gt;prer)return;&#x2F;&#x2F;退出条件<br>    Bitree root&#x3D;(Bitree)malloc(sizeof(Bitnode));<br>    &#x2F;&#x2F;Bitree&#x3D;new Bitnode;<br>    root-&gt;data&#x3D;pre[prel];&#x2F;&#x2F;依次构造<br>    int i&#x3D;0;<br>    for(i&#x3D;inl;i&lt;&#x3D;inr;i++)<br>    {<br>        if(in[i]&#x3D;&#x3D;pre[prel])break;&#x2F;&#x2F;找到左右子树在pre序列里的检测边界<br>    }<br>    int num&#x3D;i-inl;&#x2F;&#x2F;检测个数<br>    &#x2F;&#x2F;迭代构造左右子树<br>    root-&gt;leftchild&#x3D;create(prel+1,prel+num,inl,i-1);&#x2F;&#x2F;左子树<br>    root-&gt;rightchild&#x3D;create(prel+num+1,prer,i+1,inr);&#x2F;&#x2F;右子树<br>    return root;<br>}</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Opengl 的贝塞尔曲线绘制</title>
     <link href="/2023/11/20/index/"/>
     <url>/2023/11/20/index/</url>
